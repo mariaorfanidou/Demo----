@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Διαχείριση | Πρακτική Άσκηση Χαροκοπείου</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <span class="brand-icon">🎓</span>
+
+            <div>
+                <h2>Χαροκόπειο</h2>
+                <p>Διαχείριση Πρακτικής</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <button
+                type="button"
+                class="nav-item active"
+                data-page="dashboard"
+            >
+                ▦ Πίνακας Ελέγχου
+            </button>
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="announcements"
+            >
+                📢 Ανακοινώσεις
+            </button>
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="files"
+            >
+                📁 Έγγραφα
+            </button>
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="settings"
+            >
+                ⚙ Ρυθμίσεις
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="index.html">
+                ← Επιστροφή στην ιστοσελίδα
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">
+                    Πίνακας Ελέγχου
+                </h1>
+
+                <p>Γραφείο Πρακτικής Άσκησης</p>
+            </div>
+
+            <div class="admin-profile">
+                <span class="avatar">Δ</span>
+                <span>Διαχειριστής</span>
+            </div>
+
+        </header>
+
+
+        <!-- ============================
+             DASHBOARD
+        ============================= -->
+        <section id="dashboard" class="page active">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Σύνολο Ανακοινώσεων</span>
+                    <strong id="totalCount">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Δημοσιευμένες</span>
+                    <strong id="publishedCount">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Πρόχειρες</span>
+                    <strong id="draftCount">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Έγγραφα</span>
+                    <strong id="fileCount">0</strong>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <div class="panel-heading">
+                    <h2>Πρόσφατες Ανακοινώσεις</h2>
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        id="quickAdd"
+                    >
+                        + Νέα Ανακοίνωση
+                    </button>
+                </div>
+
+                <div id="recentAnnouncements"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================
+             ANNOUNCEMENTS
+        ============================= -->
+        <section id="announcements" class="page">
+
+            <div class="panel">
+
+                <div class="panel-heading">
+
+                    <h2>Διαχείριση Ανακοινώσεων</h2>
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        id="newAnnouncement"
+                    >
+                        + Προσθήκη
+                    </button>
+
+                </div>
+
+                <input
+                    type="search"
+                    id="adminSearch"
+                    class="search-input"
+                    placeholder="Αναζήτηση ανακοινώσεων..."
+                >
+
+                <div id="announcementsTable"></div>
+
+            </div>
+
+
+            <!-- ANNOUNCEMENT EDITOR -->
+            <div
+                class="panel editor-panel"
+                id="editorPanel"
+                hidden
+            >
+
+                <h2 id="editorTitle">
+                    Νέα Ανακοίνωση
+                </h2>
+
+                <form id="announcementForm">
+
+                    <input
+                        type="hidden"
+                        id="announcementId"
+                    >
+
+
+                    <div class="form-group">
+
+                        <label for="announcementTitle">
+                            Τίτλος ανακοίνωσης
+                        </label>
+
+                        <input
+                            type="text"
+                            id="announcementTitle"
+                            maxlength="180"
+                            required
+                            placeholder="Πληκτρολογήστε τίτλο"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="announcementDescription">
+                            Σύντομη περιγραφή
+                        </label>
+
+                        <textarea
+                            id="announcementDescription"
+                            rows="3"
+                            required
+                            placeholder="Σύντομη περιγραφή..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="announcementContent">
+                            Περιεχόμενο ανακοίνωσης
+                        </label>
+
+                        <textarea
+                            id="announcementContent"
+                            rows="8"
+                            required
+                            placeholder="Γράψτε το κείμενο..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="announcementStatus">
+                            Κατάσταση
+                        </label>
+
+                        <select id="announcementStatus">
+                            <option value="draft">
+                                Πρόχειρη
+                            </option>
+
+                            <option value="published">
+                                Δημοσιευμένη
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <!-- ANNOUNCEMENT IMAGE -->
+                    <div class="form-group">
+
+                        <label for="announcementImage">
+                            Εικόνα ανακοίνωσης (προαιρετική)
+                        </label>
+
+                        <input
+                            type="file"
+                            id="announcementImage"
+                            accept="image/png,image/jpeg,image/webp"
+                        >
+
+                        <small>
+                            JPG, PNG ή WEBP, μέχρι 1 MB.
+                            Μπορείς να αντικαταστήσεις την
+                            εικόνα κατά την επεξεργασία.
+                        </small>
+
+                        <div id="existingAnnouncementImage"></div>
+
+                        <img
+                            id="announcementImagePreview"
+                            class="admin-image-preview"
+                            alt="Προεπισκόπηση εικόνας ανακοίνωσης"
+                            hidden
+                        >
+
+                    </div>
+
+
+                    <!-- ANNOUNCEMENT ATTACHMENT -->
+                    <div class="form-group">
+
+                        <label for="announcementFile">
+                            Επισύναψη αρχείου (προαιρετική)
+                        </label>
+
+                        <input
+                            type="file"
+                            id="announcementFile"
+                            accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                        >
+
+                        <small>
+                            PDF, Word ή εικόνα, μέχρι 1 MB.
+                        </small>
+
+                        <div id="attachedFileInfo"></div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Αποθήκευση ανακοίνωσης
+                        </button>
+
+                        <button
+                            type="button"
+                            class="secondary-btn"
+                            id="cancelEdit"
+                        >
+                            Ακύρωση
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================
+             DOCUMENTS
+        ============================= -->
+        <section id="files" class="page">
+
+            <div class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h2>Χρήσιμα Έγγραφα</h2>
+
+                        <p class="muted">
+                            Διαδικασία συμμετοχής ·
+                            Δικαιολογητικά ·
+                            Συχνές ερωτήσεις
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        id="newDocument"
+                    >
+                        + Νέο έγγραφο
+                    </button>
+
+                </div>
+
+
+                <!-- CATEGORY FILTER -->
+                <div class="form-group">
+
+                    <label for="documentFilter">
+                        Προβολή κατηγορίας
+                    </label>
+
+                    <select id="documentFilter">
+
+                        <option value="all">
+                            Όλες οι κατηγορίες
+                        </option>
+
+                        <option value="diadikasia">
+                            Διαδικασία συμμετοχής
+                        </option>
+
+                        <option value="dikaiologitika">
+                            Δικαιολογητικά
+                        </option>
+
+                        <option value="faq">
+                            Συχνές ερωτήσεις
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- EXISTING DOCUMENTS -->
+                <div id="filesList"></div>
+
+            </div>
+
+
+            <!-- DOCUMENT EDITOR -->
+            <div
+                class="panel editor-panel"
+                id="documentEditor"
+                hidden
+            >
+
+                <h2 id="documentEditorTitle">
+                    Νέο έγγραφο
+                </h2>
+
+                <form id="documentForm">
+
+                    <input
+                        type="hidden"
+                        id="documentId"
+                    >
+
+
+                    <div class="form-group">
+
+                        <label for="documentTitle">
+                            Τίτλος εγγράφου
+                        </label>
+
+                        <input
+                            type="text"
+                            id="documentTitle"
+                            maxlength="180"
+                            required
+                            placeholder="Πληκτρολογήστε τίτλο"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="documentCategory">
+                            Ενότητα στα Χρήσιμα Έγγραφα
+                        </label>
+
+                        <select
+                            id="documentCategory"
+                            required
+                        >
+
+                            <option value="diadikasia">
+                                Διαδικασία συμμετοχής
+                            </option>
+
+                            <option value="dikaiologitika">
+                                Δικαιολογητικά
+                            </option>
+
+                            <option value="faq">
+                                Συχνές ερωτήσεις
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="documentDepartment">
+                            Τμήμα / Σελίδα εμφάνισης
+                        </label>
+
+                        <select id="documentDepartment">
+
+                            <option value="all">
+                                Όλα τα τμήματα
+                            </option>
+
+                            <option value="pliroforiki">
+                                Πληροφορικής και Τηλεματικής
+                            </option>
+
+                            <option value="diaitologia">
+                                Επιστήμης Διαιτολογίας
+                                και Διατροφής
+                            </option>
+
+                            <option value="geografia">
+                                Γεωγραφίας
+                            </option>
+
+                            <option value="oikonomia">
+                                Οικονομίας και
+                                Βιώσιμης Ανάπτυξης
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="documentDescription">
+                            Περιγραφή (προαιρετική)
+                        </label>
+
+                        <textarea
+                            id="documentDescription"
+                            rows="3"
+                            placeholder="Περιγραφή εγγράφου..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- DOCUMENT IMAGE -->
+                    <div class="form-group">
+
+                        <label for="documentImage">
+                            Εικόνα εγγράφου (προαιρετική)
+                        </label>
+
+                        <input
+                            type="file"
+                            id="documentImage"
+                            accept="image/png,image/jpeg,image/webp"
+                        >
+
+                        <small>
+                            JPG, PNG ή WEBP, μέχρι 1 MB.
+                        </small>
+
+                        <div id="existingDocumentImage"></div>
+
+                        <img
+                            id="documentImagePreview"
+                            class="admin-image-preview"
+                            alt="Προεπισκόπηση εικόνας εγγράφου"
+                            hidden
+                        >
+
+                    </div>
+
+
+                    <!-- DOCUMENT FILE -->
+                    <div class="form-group">
+
+                        <label for="documentFile">
+                            Αρχείο PDF, Word ή εικόνα
+                        </label>
+
+                        <input
+                            type="file"
+                            id="documentFile"
+                            accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                        >
+
+                        <small>
+                            Μέχρι 1 MB. Κατά την επεξεργασία,
+                            άφησε το πεδίο κενό για να
+                            διατηρηθεί το υπάρχον αρχείο.
+                        </small>
+
+                        <div id="existingDocumentFile"></div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Αποθήκευση εγγράφου
+                        </button>
+
+                        <button
+                            type="button"
+                            class="secondary-btn"
+                            id="cancelDocument"
+                        >
+                            Ακύρωση
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================
+             SETTINGS
+        ============================= -->
+        <section id="settings" class="page">
+
+            <div class="panel">
+
+                <h2>Ρυθμίσεις</h2>
+
+                <p>
+                    Το διαχειριστικό περιβάλλον λειτουργεί
+                    τοπικά στον browser.
+                </p>
+
+                <p class="muted">
+                    Δεν υπάρχει ακόμη σύνδεση με server,
+                    λογαριασμούς χρηστών ή βάση δεδομένων.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
