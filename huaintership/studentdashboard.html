@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Φοιτητής | Γραφείο Πρακτικής Άσκησης
+    </title>
+
+    <link rel="stylesheet" href="studentdashboard.css">
+</head>
+
+<body>
+
+<div class="student-layout">
+
+    <!-- =====================================
+         ΠΛΑΪΝΟ ΜΕΝΟΥ
+    ====================================== -->
+
+    <aside class="student-sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                🎓
+            </div>
+
+            <div class="brand-text">
+                <h2>Χαροκόπειο</h2>
+                <p>Γραφείο Πρακτικής Άσκησης</p>
+            </div>
+
+        </div>
+
+
+        <!-- ΣΤΟΙΧΕΙΑ ΦΟΙΤΗΤΗ -->
+
+          <!--<div class="sidebar-student">
+
+             <div class="student-avatar">
+                Φ
+            </div>
+
+         <div class="student-info">
+
+                <strong id="sidebarStudentName">
+                    Φοιτητής
+                </strong>
+
+                <span id="sidebarStudentDepartment">
+                    Τμήμα Πληροφορικής και Τηλεματικής
+                </span>
+
+            </div> 
+
+        </div>--> 
+
+
+        <!-- ΜΕΝΟΥ ΠΛΟΗΓΗΣΗΣ -->
+
+        <nav class="student-nav">
+
+            <button
+                type="button"
+                class="nav-item active"
+                data-page="home"
+            >
+                <span class="nav-icon"></span>
+                <span>ΑΡΧΙΚΗ</span>
+            </button>
+
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="profile"
+            >
+                <span class="nav-icon"></span>
+                <span>ΠΡΟΦΙΛ</span>
+            </button>
+
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="preferences"
+            >
+                <span class="nav-icon"></span>
+                <span>ΠΡΟΤΙΜΗΣΕΙΣ</span>
+            </button>
+
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="folder"
+            >
+                <span class="nav-icon"></span>
+                <span>ΠΡΟΣΩΠΙΚΟΣ ΦΑΚΕΛΟΣ</span>
+            </button>
+
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="jobs"
+            >
+                <span class="nav-icon"></span>
+                <span>ΘΕΣΕΙΣ ΕΡΓΑΣΙΑΣ</span>
+            </button>
+
+        </nav>
+
+
+        <!-- ΑΠΟΣΥΝΔΕΣΗ -->
+
+        <div class="sidebar-footer">
+
+            <button
+                type="button"
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                <span>↪</span>
+                ΑΠΟΣΥΝΔΕΣΗ
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================
+       MAIN
+    ====================================== -->
+
+    <main class="student-main">
+
+        <!-- TOP BAR -->
+
+        <header class="student-topbar">
+
+            <div class="topbar-left">
+
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-user">
+
+                    <div class="topbar-avatar">
+                        Φ
+                    </div>
+
+                 <!---  <button type="button" 
+                        id="topbarStudentName">
+                        Φοιτητής
+                    </button> --> 
+                    <a href ="#profile"
+                        id="topbarStudentName"> Φοιτητής
+                    </a>
+
+                    <span id="sidebarStudentDepartment">
+                        Τμήμα Πληροφορικής και Τηλεματικής
+                    </span>
+
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             ΑΡΧΙΚΗ ΟΘΟΝΗ
+        ====================================== -->
+
+        <section
+            id="home"
+            class="student-page active"
+        >
+
+            <!-- WELCOME -->
+
+            <div class="welcome-section">
+
+                <div>
+
+                    <span class="welcome-label">
+                        ΠΥΛΗ ΦΟΙΤΗΤΗ
+                    </span>
+
+                    <h2>
+                        Καλώς ήρθες,
+                        <span id="welcomeStudentName">
+                            Φοιτητή
+                        </span>!
+                    </h2>
+
+                    <p>
+                        Εδώ μπορείς να βρεις τις διαθέσιμες θέσεις εργασίας, να δηλώσεις προτιμήσεις και να βρεις όλα τα χρήσιμα έγγραφα.
+                        Στόχος είναι η ευκολότερη και γρηγορότερη επικοινωνία με το Γραφείο Πρακτικής Άσκησης. Οδηγός χρήσης
+                    </p>
+
+                </div>
+
+                <div class="welcome-decoration">
+                    🎓
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 ΑΝΑΚΟΙΝΩΣΕΙΣ
+            ================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            ΕΝΗΜΕΡΩΣΗ
+                        </span>
+
+                        <h2>
+                            Ανακοινώσεις
+                        </h2>
+
+                        <p>
+                            Οι τελευταίες ανακοινώσεις            
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="outline-btn"
+                        id="viewAllAnnouncements"
+                    >
+                        Προβολή όλων →
+                    </button>
+
+                </div>
+
+                <div
+                    class="announcements-grid"
+                    id="studentAnnouncements"
+                >
+
+                    <div class="empty-state">
+                        Φόρτωση ανακοινώσεων...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 ΔΙΑΘΕΣΙΜΕΣ ΘΕΣΕΙΣ
+            ================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            ΕΥΚΑΙΡΙΕΣ ΠΡΑΚΤΙΚΗΣ
+                        </span>
+
+                        <h2>
+                            Διαθέσιμες Θέσεις Εργασίας
+                        </h2>
+
+                        <p>
+                            Ανακάλυψε διαθέσιμες θέσεις πρακτικής άσκησης.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="outline-btn"
+                        id="viewAllJobs"
+                    >
+                        Προβολή όλων →
+                    </button>
+
+                </div>
+
+                <div
+                    class="jobs-grid"
+                    id="homeJobsList"
+                >
+
+                    <div class="empty-state">
+                        Φόρτωση διαθέσιμων θέσεων...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =====================================
+             ΠΡΟΦΙΛ
+        ====================================== -->
+
+        <section
+            id="profile"
+            class="student-page"
+        >
+
+            <div class="page-intro">
+
+                <h2>
+                    Το Προφίλ μου
+                </h2>
+
+                <p>
+                    Τα προσωπικά και ακαδημαϊκά
+                    στοιχεία του λογαριασμού σου.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="card-heading">
+
+                    <h3>
+                        Στοιχεία Φοιτητή
+                    </h3>
+
+                    <span class="info-tag">
+                        Προσωπικά στοιχεία
+                    </span>
+
+                </div>
+
+
+                <div class="profile-grid">
+
+                    <div class="profile-field">
+
+                        <label>
+                            Ονοματεπώνυμο
+                        </label>
+
+                        <p id="profileFullName">
+                            —
+                        </p>
+
+                    </div>
+
+
+                    <div class="profile-field">
+
+                        <label>
+                            Αριθμός Μητρώου
+                        </label>
+
+                        <p id="profileStudentId">
+                            —
+                        </p>
+
+                    </div>
+
+
+                    <div class="profile-field">
+
+                        <label>
+                            Τμήμα
+                        </label>
+
+                        <p id="profileDepartment">
+                            —
+                        </p>
+
+                    </div>
+
+
+                    <div class="profile-field">
+
+                        <label>
+                            Ακαδημαϊκό Email
+                        </label>
+
+                        <p id="profileEmail">
+                            —
+                        </p>
+
+                    </div>
+
+                    
+                    <div class="profile-field">
+
+                        <label>
+                            Πατρώνυμο
+                        </label>
+
+                        <p id="profilepatronimo">
+                            —
+                        </p>
+
+                    </div>
+
+                    
+                    <div class="profile-field">
+
+                        <label>
+                            Μητρώνυμο
+                        </label>
+
+                        <p id="profilemitronimo">
+                            —
+                        </p>
+
+                    </div>
+
+                    
+                    <div class="profile-field">
+
+                        <label>
+                            Τηλέφωνο Επικοινωνίας
+                        </label>
+
+                        <p id="profilephone">
+                            —
+                        </p>
+
+                    </div>
+
+                    
+                    <div class="profile-field">
+
+                        <label>
+                            Αριθμός Ταυτότητας
+                        </label>
+
+                        <p id="profiletautotita">
+                            —
+                        </p>
+
+                    </div>
+
+                    
+                    <div class="profile-field">
+
+                        <label>
+                            ΑΦΜ
+                        </label>
+
+                        <p id="profileafm">
+                            —
+                        </p>
+
+                    </div>
+
+                    
+                    <div class="profile-field">
+
+                        <label>
+                            ΑΜΑ
+                        </label>
+
+                        <p id="profileama">
+                            —
+                        </p>
+
+                    </div>
+
+                    
+                    <div class="profile-field">
+
+                        <label>
+                            Ημερομηνία γέννησης
+                        </label>
+
+                        <p id="profilebdate">
+                            —
+                        </p>
+
+                    </div>
+
+                    
+                    <div class="profile-field">
+
+                        <label>
+                            IBAN
+                        </label>
+
+                        <p id="profileiban">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 ΣΤΟΙΧΕΙΑ ΑΙΤΗΣΗΣ
+            ================================== -->
+
+            <div class="content-card">
+
+                <div class="card-heading">
+
+                    <h3>
+                        Στοιχεία Αίτησης Πρακτικής Άσκησης
+                    </h3>
+
+                    <span
+                        class="status-badge"
+                        id="applicationStatus"
+                    >
+                        Σε αναμονή
+                    </span>
+
+                </div>
+
+                <div class="profile-grid">
+
+                    <div class="profile-field">
+
+                        <label>
+                            Αριθμός αίτησης
+                        </label>
+
+                        <p id="profileApplicationCode">
+                            —
+                        </p>
+
+                    </div>
+
+                    <div class="profile-field">
+
+                        <label>
+                            Ημερομηνία υποβολής
+                        </label>
+
+                        <p id="profileApplicationDate">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="application-info"
+                    id="profileApplicationInfo"
+                >
+                    Η αίτησή σου βρίσκεται σε αναμονή έγκρισης.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ΟΙ ΠΡΟΤΙΜΗΣΕΙΣ ΜΟΥ
+        ====================================== -->
+
+        <section
+            id="preferences"
+            class="student-page"
+        >
+
+            <div class="page-intro">
+
+                <h2>
+                    Οι Προτιμήσεις μου
+                </h2>
+
+                <p>
+                    Οι θέσεις πρακτικής άσκησης που έχεις δηλώσει ενδιαφέρον.
+                </p>
+
+            </div>
+
+            <div class="content-card">
+
+                <div class="card-heading">
+
+                    <h3>
+                        Δήλωση Προτιμήσεων
+                    </h3>
+
+                    <span
+                        class="status-badge"
+                        id="preferencesStatus"
+                    >
+                        Σε αναμονή
+                    </span>
+
+                </div>
+
+                <div
+                    class="application-info"
+                    id="preferencesInfo"
+                >
+                    Η δήλωση προτιμήσεων θα ενεργοποιηθεί
+                    μετά την έγκριση της αίτησής σου.
+                </div>
+
+                <div
+                    id="preferencesList"
+                    class="preferences-list"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ΠΡΟΣΩΠΙΚΟΣ ΦΑΚΕΛΟΣ
+        ====================================== -->
+
+        <section
+            id="folder"
+            class="student-page"
+        >
+
+            <div class="page-intro">
+
+                <h2>
+                    Προσωπικός Φάκελος
+                </h2>
+
+                <p>
+                    Εδώ θα συγκεντρώνονται
+                    τα προσωπικά σου δικαιολογητικά
+                    για την πρακτική άσκηση.
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="card-heading">
+
+                    <h3>
+                        Τα Έγγραφά μου
+                    </h3>
+
+                </div>
+
+
+                <div
+                    class="folder-list"
+                    id="studentDocuments"
+                >
+
+                    <div class="empty-state">
+                        Δεν υπάρχουν ακόμη έγγραφα.
+                    </div>
+
+                </div>
+
+
+                <div class="upload-section">
+
+                    <h3>
+                        Ανέβασμα Δικαιολογητικού
+                    </h3>
+
+                    <p>
+                        Επίλεξε ένα αρχείο
+                        για τον προσωπικό σου φάκελο.
+                    </p>
+
+
+                    <form id="studentUploadForm">
+
+                        <div class="form-group">
+
+                            <label for="studentFileTitle">
+                                Τίτλος εγγράφου
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentFileTitle"
+                                placeholder="π.χ. Έκθεση πεπραγμένων"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="studentFile">
+                                Επιλογή αρχείου
+                            </label>
+
+                            <input
+                                type="file"
+                                id="studentFile"
+                                accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Υποβολή Εγγράφου
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ΘΕΣΕΙΣ ΕΡΓΑΣΙΑΣ
+        ====================================== -->
+
+        <section
+            id="jobs"
+            class="student-page"
+        >
+
+            <div class="page-intro">
+
+                <h2>
+                    Διαθέσιμες Θέσεις Εργασίας
+                </h2>
+
+                <p>
+                    Δες τις διαθέσιμες θέσεις πρακτικής άσκησης.
+                </p>
+
+            </div>
+
+
+            <!-- ΦΙΛΤΡΑ -->
+
+            <div class="jobs-toolbar">
+
+                <div class="search-box">
+
+                    <input
+                        type="search"
+                        id="jobSearch"
+                        placeholder="Αναζήτηση θέσης ή εταιρείας..."
+                    >
+
+                </div>
+
+                <select
+                    id="jobLocationFilter"
+                    aria-label="Φίλτρο τοποθεσίας"
+                >
+
+                    <option value="all">
+                        Όλες οι τοποθεσίες
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ΟΛΕΣ ΟΙ ΘΕΣΕΙΣ -->
+
+            <div
+                class="jobs-grid"
+                id="allJobsList"
+            >
+
+                <div class="empty-state">
+                    Φόρτωση θέσεων...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ΟΛΕΣ ΟΙ ΑΝΑΚΟΙΝΩΣΕΙΣ
+        ====================================== -->
+
+        <section
+            id="all-announcements"
+            class="student-page"
+        >
+
+            <div class="page-intro">
+
+                <h2>
+                    Όλες οι Ανακοινώσεις
+                </h2>
+
+                <p>
+                    Ανακοινώσεις 
+                </p>
+
+            </div>
+
+
+            <div
+                class="announcements-grid"
+                id="allStudentAnnouncements"
+            >
+
+                <div class="empty-state">
+                    Φόρτωση ανακοινώσεων...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ΛΕΠΤΟΜΕΡΕΙΕΣ ΘΕΣΗΣ
+        ====================================== -->
+
+        <section
+            id="job-details"
+            class="student-page"
+        >
+
+            <button
+                type="button"
+                class="back-btn"
+                id="backToJobs"
+            >
+                ← Επιστροφή στις θέσεις
+            </button>
+
+
+            <div
+                class="content-card"
+                id="jobDetailsContent"
+            >
+
+                <div class="empty-state">
+                    Επίλεξε μια θέση για να δεις τις λεπτομέρειές της.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ΛΕΠΤΟΜΕΡΕΙΕΣ ΑΝΑΚΟΙΝΩΣΗΣ
+        ====================================== -->
+
+        <section
+            id="announcement-details"
+            class="student-page"
+        >
+
+            <button
+                type="button"
+                class="back-btn"
+                id="backToAnnouncements"
+            >
+                ← Επιστροφή στις ανακοινώσεις
+            </button>
+
+
+            <div
+                class="content-card"
+                id="announcementDetailsContent"
+            >
+
+                <div class="empty-state">
+                    Επίλεξε μια ανακοίνωση
+                    για να δεις τις λεπτομέρειές της.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="studentdashboard.js"></script>
+
+</body>
+</html>

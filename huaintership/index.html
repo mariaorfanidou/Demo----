@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πρακτική Άσκηση | Χαροκόπειο Πανεπιστήμιο</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="brand">
+                <div class="brand-icon">🎓</div>
+                <div>
+                    <h1>Χαροκόπειο Πανεπιστήμιο</h1>
+                    <p>Γραφείο Πρακτικής Άσκησης</p>
+                </div>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button>
+
+            <nav class="navbar" id="navbar">
+                <div class="dropdown">
+                    <button type="button" class="menu-btn"> Πληροφορίες
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="#tmimata"> Πληροφορίες ανά τμήμα</a>
+                        <a href="#eggrafa"> Χρήσιμα έγγραφα</a>
+                        <a href="#sindesi"> Οδηγίες Σύνδεσης</a>
+                    </div>
+                </div>
+
+                <a href="#grafeio">Γραφείο Πρακτικής</a>
+                <a href="#anakoinoseis">Ανακοινώσεις</a>
+                <a href="#epikoinonia">Επικοινωνία</a>
+                <button class="login-btn" id="loginBtn">
+                    Σύνδεση
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <span class="hero-label">ΧΑΡΟΚΟΠΕΙΟ ΠΑΝΕΠΙΣΤΗΜΙΟ</span>
+                <h2>Πρακτική Άσκηση </h2>
+                <p>
+                    Ενημερωθείτε για τις ανακοινώσεις,
+                    τις διαδικασίες συμμετοχής και τις
+                    ευκαιρίες πρακτικής άσκησης.
+                </p>
+                <a href="#grafeio" class="hero-button">
+                    # Γιατί να κάνω πρακτική άσκηση →
+                </a>
+            </div>
+        </section>
+
+        <!-- ANNOUNCEMENTS -->
+        <section class="section" id="anakoinoseis">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">ΕΝΗΜΕΡΩΣΗ ΦΟΙΤΗΤΩΝ</span>
+                        <h2>Ανακοινώσεις</h2>
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <input type="search" id="searchInput" placeholder="Αναζήτηση ανακοινώσεων..."
+                        aria-label="Αναζήτηση ανακοινώσεων">
+                </div>
+
+                <div class="announcements" id="announcementList">
+                    <!-- Οι ανακοινώσεις μπαίνουν από JavaScript -->
+                </div>
+
+                <p id="emptyMessage" class="empty-message" hidden>
+                    Δεν βρέθηκαν ανακοινώσεις.
+                </p>
+
+                <div class="announcements-footer">
+                    <a href="anakoinoseis" id="viewAllAnouncements"> Προβολή όλων →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- OFFICE -->
+        <section class="section light-section" id="tmimata">
+            <div class="container">
+                <span class="eyebrow">TMHMATA</span>
+                <h2>ΠΛΗΡΟΦΟΡΙΕΣ ΑΝΑ ΤΜΗΜΑ</h2>
+
+                <div class="info-grid">
+                    <a href="https://dit.hua.gr/index.php/el" class="info-card pliroforiki">
+                        <h3>ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΜΑΤΙΚΗΣ</h3>
+                    </a>
+
+                    <a href="https://dnd.hua.gr/" class="info-card diaitologia">
+                        <h3>ΕΠΙΣΤΗΜΗ ΔΙΑΙΤΟΛΟΓΙΑΣ ΚΑΙ ΔΙΑΤΡΟΦΗΣ</h3>
+                    </a>
+
+                    <a href="https://geo.hua.gr/" class="info-card geografia">
+                        <h3>ΓΕΩΓΡΑΦΙΑΣ</h3>
+                    </a>
+
+                    <a href="https://desd.hua.gr/" class="info-card oikonomia">
+                        <h3>ΟΙΚΟΝΟΜΙΑΣ ΚΑΙ ΒΙΩΣΙΜΗΣ ΑΝΑΠΤΥΞΗΣ</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- INFORMATION -->
+        <section class="section light-section" id="eggrafa">
+            <div class="container">
+                <span class="eyebrow">ΧΡΗΣΙΜΕΣ ΠΛΗΡΟΦΟΡΙΕΣ</span>
+                <h2>Χρήσιμα Έγγραφα</h2>
+
+                <div class="info-grid">
+                    <article class="info-card">
+                        <div class="info-icon">📋</div>
+                        <h3>Διαδικασία Συμμετοχής</h3>
+                        <p>
+                            Μάθετε τα βασικά βήματα και τις προϋποθέσεις για συμμετοχή στην πρακτική άσκηση.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="info-icon">📄</div>
+                        <h3>Δικαιολογητικά</h3>
+                        <p>
+                            Βρείτε τα απαιτούμενα
+                            έγγραφα και τις διαδικασίες υποβολής.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="info-icon">❔</div>
+                        <h3>Συχνές Ερωτήσεις</h3>
+                        <p>
+                            Πληροφορίες για την πρακτική άσκηση
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- CONTACT -->
+        <section class="section" id="epikoinonia">
+            <div class="container">
+                <span class="eyebrow">ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</span>
+                <h2>Επικοινωνία</h2>
+
+                <div class="contact-grid">
+                    <div class="contact-column">
+                        <h3>Χαροκόπειο Πανεπιστήμιο</h3>
+                        <p>Ελευθερίου Βενιζέλου 70, Καλλιθέα</p>
+                        <p>Κτήριο Φοιτητικής Μέριμνας, Γραφείο 2</p>
+                    </div>
+
+                    <div class="contact-column">
+                        <h3> Υπέυθυνος Επικοινωνίας </h3>
+                        <p> Ευγένιος Ζακυνθυνός, ΠΕ Οικονομικού</p>
+                        <p> Τηλέφωνο Επικοινωνίας: 2109549223</p>
+                        <p> Email Επικοινωνίας: intern@hua .gr</p>
+                    </div>
+
+                    <div class="contact-hours">
+                        <h3> Ημέρες & ώρες υποδοχής φοιτητών/τριών </h3>
+                        <p>
+                            Δευτέρα ώρες 15:30-16:30 <br> Τετάρτη ώρες 15:30 - 16:30 <br> Παρασκευή ώρες 15:30-16:30
+                            </h3>
+                        </p>
+                    </div>
+
+                </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                © <span id="currentYear"></span>
+                Χαροκόπειο Πανεπιστήμιο |
+                Γραφείο Πρακτικής Άσκησης
+            </p>
+        </div>
+    </footer>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal" hidden>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+
+            <button class="close-btn" id="closeLogin" aria-label="Κλείσιμο">×</button>
+
+            <h2 id="loginTitle">Σύνδεση Χρήστη</h2>
+            <p>Είσοδος στην πλατφόρμα πρακτικής άσκησης</p>
+
+            <form id="loginForm">
+                <label for="username">Όνομα χρήστη (@hua.gr)</label>
+                <input type="text" id="username" autocomplete="username" required>
+
+                <label for="password">Κωδικός πρόσβασης</label>
+                <input type="password" id="password" autocomplete="current-password" required>
+
+                <label for="applicationCode">
+                    ΚΩΔΙΚΟΣ ΑΙΤΗΣΗΣ *
+                </label>
+
+                <input type="text" id="applicationCode" placeholder="Συμπλήρωσε αν διαθέτεις κωδικό αίτησης">
+
+                <button type="submit" class="submit-btn">
+                    Σύνδεση
+                </button>
+            </form>
+            <div class="test-accounts">
+                <strong>Δοκιμαστικοί λογαριασμοί</strong>
+
+                <p>it123@hua.gr — Πληροφορική</p>
+                <p>gs123@hua.gr — Διαιτολογία</p>
+                <p>ds123@hua.gr — Γεωγραφία</p>
+                <p>hs123@hua.gr — Βιώσιμη Ανάπτυξη</p>
+
+                <p><strong>Κωδικός για όλους: 123</strong></p>
+            </div>
+
+            <p id="loginMessage" class="login-message" role="status"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
